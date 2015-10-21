@@ -1,0 +1,38 @@
+<!doctype html>
+<html ng-app="app">
+<meta charset="utf-8">
+<head>
+    <script src="../bower_components/angular/angular.min.js"></script>
+</head>
+<body>
+Busca: <input type="search" ng-model="busca">
+<div ng-controller="CtrlLista">
+
+    Municípios:
+    <select ng-model="selected" ng-options="municipio.nome for municipio in municipios | filter:busca">
+        <option value="">Selecione:</option>
+    </select>
+    <hr>
+    <div>
+        Municipio: <input type="text" ng-model="selected.nome">
+        <br>
+        UF: <input type="text" ng-model="selected.uf">
+        <br>
+    </div>
+
+</div>
+<script type="application/javascript">
+    var myApp = angular.module('app', []);
+    var CtrlLista = function($scope){
+
+        $scope.municipios = [
+            {nome: "Chapecó", uf: "SC"},
+            {nome: "São Paulo", uf: "SP"},
+            {nome: "Rio de Janeiro", uf: "RJ"},
+            {nome: "Belém", uf: "PA"}
+        ];
+    };
+    myApp.controller('CtrlLista', CtrlLista);
+</script>
+</body>
+</html>

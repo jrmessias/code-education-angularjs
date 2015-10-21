@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <script src="../bower_components/angular/angular.min.js"></script>
+</head>
+<body>
+<div>
+    <label for="exibir">
+    <input type="checkbox" ng-model="exibir" id="exibir"> Show
+    </label>
+    <div ng-show="exibir">
+        Marcado
+    </div>
+    <div ng-hide="exibir">
+        DesMarcado
+    </div>
+</div>
+<script type="application/javascript">
+    var myApp = angular.module('app', []);
+
+</script>
+</body>
+</html>

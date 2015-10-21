@@ -1,0 +1,25 @@
+{
+  "name": "CodeEducationAngularJSMJ",
+  "version": "0.1.0",
+  "authors": [
+    "Júnior Messias <jrmessias@gmail.com>"
+  ],
+  "description": "Code Education - AngularJS",
+  "keywords": [
+    "code",
+    "angularjs",
+    "imj"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "1.4.7",
+    "angular-route": "~1.4.7"
+  }
+}

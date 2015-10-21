@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <script src="../bower_components/angular/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="CtrlApp">
+    <input type="text" ng-model="nome" ng-change="logar()">
+    <h1>{{nome}} - {{idade}}, {{cidade}}</h1>
+</div>
+
+<script type="application/javascript">
+    var myApp = angular.module('app', []);
+    var CtrlApp = function($scope){
+        $scope.nome = 'Jr';
+        $scope.cidade = 'SMO';
+        $scope.idade  = 30;
+        $scope.logar = function(){
+            console.log('Hello '+$scope.nome);
+        };
+    };
+
+    myApp.controller('CtrlApp', CtrlApp);
+</script>
+</body>
+</html>

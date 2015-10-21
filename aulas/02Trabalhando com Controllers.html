@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <script src="../bower_components/angular/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="CtrlApp">
+    <input type="text" ng-model="nome">
+    <h1>{{nome}}!</h1>
+</div>
+<div ng-controller="Ctrl2App">
+    <h1>{{sobrenome}}!</h1>
+</div>
+<script type="application/javascript">
+    var myApp = angular.module('app', []);
+    var CtrlApp = function($scope){
+        $scope.nome = 'Jr';
+        $scope.$watch('nome', function(){
+            console.log('Hello '+$scope.nome);
+        })
+    };
+    var Ctrl2App = function($scope){
+        $scope.sobrenome = 'Messias';
+    }
+    myApp.controller('CtrlApp', CtrlApp);
+    myApp.controller('Ctrl2App', Ctrl2App);
+</script>
+</body>
+</html>

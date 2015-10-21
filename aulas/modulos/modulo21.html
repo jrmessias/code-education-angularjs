@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="MeuModulo">
+<meta charset="utf-8">
+<head>
+    <script src="../bower_components/angular/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="CtrlNome">
+    Meu nome é {{ nome }}
+</div>
+<div ng-controller="CtrlSobrenome">
+    Meu sobrenome é {{ sobrenome }}
+</div>
+<script type="application/javascript">
+    var myApp = angular.module('MeuModulo', []);
+    var CtrlNome = function (s) {
+        s.nome = "Jr";
+    };
+    var CtrlSobrenome = function (s) {
+        s.sobrenome = "Messias";
+    };
+    myApp.controller('CtrlNome', ['$scope', CtrlNome]);
+    myApp.controller('CtrlSobrenome', ['$scope', CtrlSobrenome]);
+</script>
+</body>
+</html>
