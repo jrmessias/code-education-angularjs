@@ -1,0 +1,45 @@
+<!doctype html>
+<meta charset="utf-8">
+<html ng-app="App">
+<head>
+    <script src="../bower_components/angular/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="CtrlApp">
+    <button jr-click="executa()">Clique here</button>
+    <jr-clic click="executa()">Clique aqui again</jr-clic>
+</div>
+
+<script>
+    angular.module('App', [])
+            .directive('jrClick', function(){
+                return {
+                    restrict: 'A',
+                    link: function(scope, element, attrs){
+                        element.bind('click', function(){
+                            scope.$eval(attrs.jrClick)
+                        });
+                    }
+                };
+            })
+            .directive('jrClic', function(){
+                return {
+                    restrict: 'E',
+                    replace: true,
+                    transclude: true,
+                    template: '<button ng-transclude></button>',
+                    link: function(scope, element, attrs){
+                        element.bind('click', function(){
+                            scope.$eval(attrs.click)
+                        });
+                    }
+                };
+            })
+            .controller('CtrlApp', function($scope){
+                $scope.executa = function(){
+                    alert('Diretiva clicada');
+                }
+            });
+</script>
+</body>
+</html>

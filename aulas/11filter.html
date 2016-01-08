@@ -1,0 +1,34 @@
+<!doctype html>
+<meta charset="utf-8">
+<html ng-app="App">
+<head>
+    <script src="../bower_components/angular/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="CtrlApp">
+    <h1>{{ frase | case:'lower' }}</h1>
+</div>
+
+<script>
+    angular.module('App', [])
+            .filter('upper', function(){
+                return function(input){
+                    return input.toUpperCase();
+                }
+            })
+            .filter('lower', function(){
+                return function(input){
+                    return input.toLowerCase();
+                }
+            })
+            .filter('case', function(){
+                return function(input, type){
+                    return (type == 'lower') ? input.toLowerCase() : input.toUpperCase();
+                }
+            })
+            .controller('CtrlApp', function($scope){
+                $scope.frase = 'Olá, Meu nome é Jr';
+            })
+</script>
+</body>
+</html>
